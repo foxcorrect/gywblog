@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: guyawei (1972065889@qq.com)
  * @Date: 2026-05-30 20:49:39
- * @LastEditTime: 2026-05-30 21:10:47
+ * @LastEditTime: 2026-05-30 22:45:23
  * @LastEditors: guyawei (1972065889@qq.com)
  * @FilePath: \blog\docs\index.md
 -->
@@ -13,11 +13,11 @@
 
 ## 博客栏目
 
-- [前端面试](./interview/)
-- [React](./react/)
-- [Vue](./vue3/)
+<!-- - [前端面试](./interview/) -->
+<!-- - [React](./react/) -->
+<!-- - [Vue](./vue3/) -->
 - [AI About](/ai/llm)
-- [项目实战](./projects/)
+<!-- - [项目实战](./projects/) -->
 
 ---
 
