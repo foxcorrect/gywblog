@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: guyawei (1972065889@qq.com)
  * @Date: 2026-05-30 20:49:39
- * @LastEditTime: 2026-05-30 22:45:23
+ * @LastEditTime: 2026-06-02 18:12:09
  * @LastEditors: guyawei (1972065889@qq.com)
  * @FilePath: \blog\docs\index.md
 -->
@@ -16,7 +16,10 @@
 <!-- - [前端面试](./interview/) -->
 <!-- - [React](./react/) -->
 <!-- - [Vue](./vue3/) -->
-- [AI About](/ai/llm)
+- [AI Learning](/ai/llm)
+    - [LLM大语言模型](/ai/llm)
+    - [RAG-检索增强](/ai/search)
+    - [VectorDatabase](/ai/database)
 <!-- - [项目实战](./projects/) -->
 
 ---

@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: guyawei (1972065889@qq.com)
  * @Date: 2026-05-30 20:47:57
- * @LastEditTime: 2026-05-30 22:21:09
+ * @LastEditTime: 2026-06-02 19:06:28
  * @LastEditors: guyawei (1972065889@qq.com)
  * @FilePath: \blog\docs\.vitepress\config.ts
  */
@@ -63,5 +63,6 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/foxcorrect' },
     ],
+    outline: 'deep'
   }
 })
