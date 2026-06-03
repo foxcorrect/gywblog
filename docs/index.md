@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: guyawei (1972065889@qq.com)
  * @Date: 2026-05-30 20:49:39
- * @LastEditTime: 2026-06-03 22:06:41
+ * @LastEditTime: 2026-06-03 22:27:40
  * @LastEditors: guyawei (1972065889@qq.com)
  * @FilePath: \blog\docs\index.md
 -->
@@ -14,7 +14,7 @@
 ## 博客栏目
 
 <!-- - [前端面试](./interview/) -->
-- [React](./react/)
+- [React](./react/reacteventprinciple)
     - [React 事件原理](/react/reacteventprinciple)
     - [Fiber架构以及如何实现增量渲染](/react/fiber)
     - [useState和useEffect的实现原理](/react/stateeffect)

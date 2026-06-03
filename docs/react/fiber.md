@@ -18,20 +18,20 @@
 ## Fiber 的形成
 
 `Fiber` 还可以理解为是一种数据结构，`React Fiber` 就是采用链表实现的。每个 `Virtual DOM` 都可以表示为一个 `fiber`，如下图所示:
-![](../imgs/7055118bc9c21bf746f4e785dc2fabc5.image#)
+![](../imgs/7055118bc9c21bf746f4e785dc2fabc5.png#)
 
 每个节点都是一个 `fiber`。一个 `fiber` 包括了 `child第一个子节点`、`sibling兄弟节点`、`return父节点`等属性，`React Fiber` 机制的实现，就是依赖于以下的数据结构。每个 `fiber` 树它可以由多个子 `fiber` 组成:
-![](../imgs/fe48a68d81e092cf5752dcf211885903.image#)
+![](../imgs/fe48a68d81e092cf5752dcf211885903.png#)
 
 在首次渲染的时候，会创建 `fiberRoot` 和 `rootFiber`,`fiberRoot` 是整个应用的根节点,`rootFiber` 是组件的根节点,这也就是为什么要求你的组件或者页面的父元素必须是一个单节点。
 
 在 `React` 的 `fiber` 中多次更新最多会存在两棵 `Fiber` 树，显示在屏幕上的叫做 `current Fiber` 树，正在内存构建的是 `workInProgress Fiber` 树。
 
 在构建的过程中,`fiberRoot.current` 指向当前界面对应的 `fiber` 树:
-![](../imgs/57762cbd09353c77103e11b3efe419af.image#)
+![](../imgs/57762cbd09353c77103e11b3efe419af.png#)
 
 构造完成并渲染, 切换 `fiberRoot.current` 指针, 使其继续指向当前界面对应的 `fiber` 树:
-![](../imgs/1e845ab3b76fe503e431b19d87ecd3fd.image#)
+![](../imgs/1e845ab3b76fe503e431b19d87ecd3fd.png#)
 
 整个过程使用深度遍历的方法,对比新老节点,它类似于 `diff` 算法,判断是否发生了变化以及采取相对应的措施,复用还是变更。
 
@@ -50,10 +50,10 @@
 通过使用 `Effect List`,`React Fiber` 可以更加精确地控制组件更新的过程，并且在必要时可以进行优化，比如不执行没有变化的副作用操作、批量处理副作用等。这样可以提高 `React` 应用的性能和用户体验。
 
 再看看这一张图,首先它标记处那个是有变更的,适合旧的 `fiber` 树发生变化的:
-![](../imgs/14cf01996999530fcc11892b3b1b89d4.image#)
+![](../imgs/14cf01996999530fcc11892b3b1b89d4.png#)
 
 最终会生成一个链表结构,如下所示:
-![](../imgs/287093d0d3e1e09809b7b1eac4243c61.image#)
+![](../imgs/287093d0d3e1e09809b7b1eac4243c61.png#)
 
 ### EffectList 如何收集
 
@@ -64,7 +64,7 @@
 
 在上面的 `Effect List` 中,因为 `List` 是在 `Fiber` 树中
 
-![](../imgs/67899a792ab2219c358006aba4ba85b5.image#)
+![](../imgs/67899a792ab2219c358006aba4ba85b5.png#)
 
 在该函数中所做的工作:
 
@@ -78,15 +78,15 @@
 
 `Effect list` 在 `React` 的 `commit` 阶段进行处理。
 
-![](../imgs/6e1ce0b3e847656a5d34cbb1cf5d7369.image#)
+![](../imgs/6e1ce0b3e847656a5d34cbb1cf5d7369.png#)
 
 在整个 `commitRootImpl` 函数的执行过程中，根据不同阶段的处理，逐步应用 effectList 中的副作用,在该函数中有如下代码调用:
 
-![](../imgs/39eb91fcde638a195cccf6a11e53cc52.image#)
+![](../imgs/39eb91fcde638a195cccf6a11e53cc52.png#)
 
 在该函数中,继而又调用另外一个函数,这个函数就是真正执行逻辑的地方:
 
-![](../imgs/0b839744264cb8a56fa6c7f40bd39031.image#)
+![](../imgs/0b839744264cb8a56fa6c7f40bd39031.png#)
 
 该函数的主要作用如下:
 
@@ -147,7 +147,7 @@ export type Fiber = {|
 *   `fiber.lastEffect`: 单向链表,指向最后一个副作用 `fiber` 节点;
 *   `fiber.flags`: 标志位, 表明该 `fiber` 节点有副作用,用于在 `React` 的协调和调度过程中标记一些特殊的状态和操作;
 
-![](../imgs/6bd1791509ea5a74ca77c472446301f5.image#)
+![](../imgs/6bd1791509ea5a74ca77c472446301f5.png#)
 
 副作用的设置可以理解为对撞他功能不足的补充:
 
@@ -221,7 +221,7 @@ export default App;
 
 在 `resumeMountClassInstance` 函数中,主要以下这段代码:
 
-![](../imgs/e5853f497c7d9e86ec3e4cf80be1c5bb.image#)
+![](../imgs/e5853f497c7d9e86ec3e4cf80be1c5bb.png#)
 
 `getDerivedStateFromProps` 是组件的生命周期方法，用于根据传入的 `props` 来派生更新组件的状态。它是静态方法，可以在组件实例创建之前被调用。
 
@@ -242,17 +242,17 @@ export default App;
 
 在组件的 `Update` 阶段,`React` 会通过 `updateClassInstance()` 函数会为 `Fiber` 节点打上 `Snapshot` 的 `effect flag`,根据源码有以下三种方法:
 
-![](../imgs/705cef866cfd4579ccea8263c702217c.image#)
+![](../imgs/705cef866cfd4579ccea8263c702217c.png#)
 
 一般情况下我们只需要关注第二个情况,也就是 `checkShouldComponentUpdate()` 函数
 
-![](../imgs/009ef1de1c8f0b2dd8eb1261e1daa52d.image#)
+![](../imgs/009ef1de1c8f0b2dd8eb1261e1daa52d.png#)
 
 在该函数中,它主要通过浅层比较的算法来判断是否需要打上 `Snapshot` 的 `effect flag`。
 
 一旦当前的 `class component` 所对应的 `fiber` 节点的 `effect flag` 包含 `Snapshot` 这个标志位，那么 `react` 就是调用我们定义的 `getSnapshotBeforeUpdate()` 方法。`commit` 阶段又可以分为三个子阶段: `beforeMutation`、`mutation`、`layout`,当前阶段处于 `beforeMutation` 子阶段。
 
-![](../imgs/7836ec3885547a3db669e26edc4f850e.image#)
+![](../imgs/7836ec3885547a3db669e26edc4f850e.png#)
 
 最后，`react` 会在 `layout` 子阶段调用组件实例的 `componentDidUpdate()` 方法，把组件实例的 `__reactInternalSnapshotBeforeUpdate` 属性值作为第三个实参传递进入:
 
@@ -267,7 +267,7 @@ if (snapshot !== null) {
 
 在 `getSnapshotBeforeUpdate()` 生命周期中,它所遵循判断逻辑是:
 
-![](../imgs/834a540b450c71f4716e0a0f9efb9aff.image#)
+![](../imgs/fiber_cy.png)
 
 ##### 生命周期 componentDidMount
 
@@ -281,7 +281,7 @@ if (snapshot !== null) {
 
 最终整个 `React` 类组件的生命周期如下所示:
 
-![](../imgs/3ced849025e355faf524449c81632d69.image#)
+![](../imgs/3ced849025e355faf524449c81632d69.png#)
 
 # Concurrent 模型
 
@@ -291,7 +291,7 @@ if (snapshot !== null) {
 
 这是一个特性集合,可以让你的 `React` 应用保持响应,可以根据用户的设备能力和网络情况优雅地调整,它主要分为两个方向的优化,它分别是 `CPU密集型` 和 `I/O密集型`。
 
-![](../imgs/0492283bb1defaad926e2a0f389a72d0.image#)
+![](../imgs/0492283bb1defaad926e2a0f389a72d0.png#)
 
 `React` 中的 `Concurrent Mode` 是指在 `Reconciler` 中处理 `long task` 时，可以不阻塞浏览器中的其他进程，并且 `React` 中的 `render` 任务 具有各自的优先级，任务可以通过过`时间分片` + `优先级调度`的方式在执行和暂停之间切换状态。
 
@@ -339,18 +339,18 @@ if (snapshot !== null) {
 
 我们再来借用一下这张图吧!
 
-![](../imgs/82a88ffc5c3d9e448418bec669a8add4.image#)
+![](../imgs/82a88ffc5c3d9e448418bec669a8add4.png#)
 
 `performConcurrentWorkOnRoot` 是 `Scheduler` 开启调度时实际执行的任务:
 
-![](../imgs/7c68abc7ef44514acbff63ac6c37ab7c.image#)
+![](../imgs/7c68abc7ef44514acbff63ac6c37ab7c.png#)
 
 该函数主要做的事情就是有以下两个方面:
 
 *   获取当前需要执行的 `lane/lanes`，用最高优先级的 `lane` 作为任务执行的优先级标准，同时计算 `lane` 对应的优先级;
 *   开始 `Reconciler` 的 `render` 阶段，`exitStatus` 用来表示 `render` 流程的结果状态;
 
-![](../imgs/200ab4fe18d0fb40debe1a24f2e3d18b.image#)
+![](../imgs/200ab4fe18d0fb40debe1a24f2e3d18b.png#)
 
 看完了前面部分的代码,我们接着看后面部分的代码,我们以 `render` 流程的结果作为结束点,下半部分主要是处理 `exitStatus` 在不同场景下的流程:
 
@@ -372,7 +372,7 @@ if (snapshot !== null) {
 
 *   看看哪些 `lane` 已经超时了，标记到 `root.expiredLanes`;
 
-    ![](../imgs/6ea69df9a8b1e5872163d4f8c2c5a78f.image#)
+    ![](../imgs/6ea69df9a8b1e5872163d4f8c2c5a78f.png#)
 
 *   获取当前需要执行的 `lane/lanes`，用最高优先级的 `lane` 作为任务执行的优先级标准，同时计算 `lane` 对应的 `priority`;
 
@@ -382,7 +382,7 @@ if (snapshot !== null) {
 
 如果函数继续往下走:
 
-![](../imgs/982066d128c4a49b0095d69de9306037.image#)
+![](../imgs/982066d128c4a49b0095d69de9306037.png#)
 
 如果已经有执行中的任务，可以判断是否复用执行中的任务，若任务优先级没有发生变化，则不需要走后续的 `Scheduler` 分配任务流程。若优先级发生了变化，则取消当前的 `scheduler task`。
 
@@ -393,7 +393,7 @@ if (snapshot !== null) {
 
 所以会有后面的这段代码:
 
-![](../imgs/da485228ce5bb458b4c8964fe7c085de.image#)
+![](../imgs/da485228ce5bb458b4c8964fe7c085de.png#)
 
 前者是取消现有的回调,保存一个新的,后者是根据更新任务的优先级，创建新的回调任务，并保存到 `newCallbackNode` 中。
 
@@ -460,7 +460,7 @@ React 在此时会执行以下操作:
 
 在前面的内容中我们讲到 `ensureRootIsScheduled` 是进入 `Scheduler` 调度的入口函数,而 `unstable_scheduleCallback` 是正是进入 `Scheduler` 调度的。
 
-![](../imgs/fa70457aeec982f9b9e9811c5edd82ff.image#)
+![](../imgs/fa70457aeec982f9b9e9811c5edd82ff.png#)
 
 这个函数的主要流程是有以下几个方面:
 
@@ -494,10 +494,10 @@ React 在此时会执行以下操作:
 
 2.  `advanceTimers`: `advanceTimers` 做的事情就是遍历延期调度任务对列，这个任务队列中存放着需要延期执行的任务，判断这些任务是否到期，如果到期了,将到期的延时任务转移到 `taskQueue` 中;
 
-    ![](../imgs/fe00dd67e280c48b41c32e740133382a.image#)
+    ![](../imgs/fe00dd67e280c48b41c32e740133382a.png#)
 
 3.  `handleTimeout`: 接下来我们直接看看 `handleTimeout` 的源码:
-    ![](../imgs/2c1be3435ed96c39b0a2017a34e0f857.image#)
+    ![](../imgs/2c1be3435ed96c39b0a2017a34e0f857.png#)
     可以看到首先调用了 `advanceTimers`，将到期的延时任务转移到 `taskQueue` 中。
 
     如果 `taskQueue` 不为空，那就执行 `requestHostCallback`,告诉浏览器，等空了就干活，继续遍历执行 `taskQueue` 中的任务。
@@ -510,13 +510,13 @@ React 在此时会执行以下操作:
     *   `requestPaint` 函数用于请求浏览器执行绘制操作。在现代浏览器中，绘制操作通常由浏览器的绘制引擎负责执行，它会将绘制任务放入绘制队列中，然后在合适的时机执行绘制操作;
     *   `shouldYieldToHost` 函数用于判断是否应该暂时让出主线程，让浏览器处理其他任务或用户输入`requestPaint` 函数用于请求浏览器执行绘制操作，以提高页面的响应速度和性能。两者都是为了优化任务调度和页面渲染的性能而存在的;
 
-        ![](../imgs/e4163c98071f26c6b44fc9817457a111.image#)
+        ![](../imgs/e4163c98071f26c6b44fc9817457a111.png#)
 
 6.  `performWorkUntilDeadline`: 该函数主要用于时间切片。它会在每个时间片结束时被调用，用于执行剩余的任务片段，直到达到时间片的截止时间。在每次执行任务片段后，它会检查是否需要让出主线程，以响应其他高优先级任务或用户输入。如果仍有剩余任务片段且还未到达时间片截止时间，则会继续执行下一个任务片段，直到达到时间片的截止时间为止。这样就能够在时间片内尽可能多地执行任务，并保证在每个时间片结束时能够让出主线程。
 
 我们主要来看看这段代码:
 
-![](../imgs/070ff620caa7e71c6d7fcb70604cea9e.image#)
+![](../imgs/070ff620caa7e71c6d7fcb70604cea9e.png#)
 
 这段代码的主要逻辑如下:
 
@@ -529,7 +529,7 @@ React 在此时会执行以下操作:
 
 接着我们来看一下这个流程图:
 
-![](../imgs/76312ab90e676984e27a0128fb1cfb19.image#)
+![](../imgs/76312ab90e676984e27a0128fb1cfb19.png#)
 
 ### flushWork 执行任务
 
@@ -540,7 +540,7 @@ React 在此时会执行以下操作:
 *   `hasTimeRemaining`: 代表当前帧是否还有时间留给 `react`;
 *   `initialTime`: 即 `currentTime`;
 
-![](../imgs/1cdb0b77b41d51c6e5630440bab605a0.image#)
+![](../imgs/1cdb0b77b41d51c6e5630440bab605a0.png#)
 
 你会发现这段代码看似很长,实际上就是在做一件事情,将主要执行权交给它的小弟 `workLoop ` 函数。
 
@@ -626,9 +626,9 @@ function workLoop(hasTimeRemaining, initialTime) {
 
 最后贴上一张完整的工作循环图:
 
-![](../imgs/f8c59d8c3bfe756896b5c07866827326.image#)
+![](../imgs/f8c59d8c3bfe756896b5c07866827326.png#)
 
-还有一张完整的 `Scheduler` [调度流程](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/493c087e2fd64e1a8c552f16927192f6~tplv-k3u1fbpfcp-watermark.image?)
+还有一张完整的 `Scheduler` [调度流程](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/493c087e2fd64e1a8c552f16927192f6~tplv-k3u1fbpfcp-watermark.png?)
 
 至此,整个 `Scheduler` 调度流程完整结束。
 
