@@ -159,7 +159,7 @@ export default function App(){
 
 **常规模式下效果：**
 
-![](images\b70a07fff71710ad25b08562bd5b85c5.png)
+![](../imgs/b70a07fff71710ad25b08562bd5b85c5.png)
 
 * 可以清楚的看到在常规模式下，输入内容，内容呈现都变的异常卡顿，给人一种极差的用户体验。
 
@@ -167,13 +167,13 @@ export default function App(){
 **transtion 模式下效果：**
 
 
-![](images\7ec4e79cbb0b51eb1f962793782b9456.png)
+![](../imgs/7ec4e79cbb0b51eb1f962793782b9456.png)
 
 * 把大量并发任务通过 startTransition 处理之后，可以清楚看到，input 会正常的呈现，更新列表任务变得滞后，不过用户体验大幅度提升，
 
 **整体效果：**
 
-![](images\1f551666c66cbb09fd1b84f48549d828.png)
+![](../imgs/1f551666c66cbb09fd1b84f48549d828.png)
 
 * 来感受一些 startTransition 的魅力。
 
@@ -197,7 +197,7 @@ const handleChange=()=>{
 * 这里通过 setTimeout ，把更新放在 setTimeout 内部，那么我们都知道 setTimeout 是属于延时器任务，它不会阻塞浏览器的正常绘制，浏览器会在下次空闲时间之行 setTimeout 。那么效果如何呢？我们来看一下：
 
 
-![](images\ee63e6e3389aaf591a7c321d68d70a57.png)
+![](../imgs/ee63e6e3389aaf591a7c321d68d70a57.png)
 
 * 如上可以看到，通过 setTimeout 确实可以让输入状态好一些，但是由于 setTimeout 本身也是一个宏任务，而每一次触发 onchange 也是宏任务，所以 setTimeout 还会影响页面的交互体验。
 
@@ -222,7 +222,7 @@ const handleChange = (e) => {
 * 如上将 setSearchQuery 防抖处理。然后我们看一下效果。
 
 
-![](images\6d43dddeeafb31277dd944a20391e735.gif)
+![](../imgs/6d43dddeeafb31277dd944a20391e735.gif)
 
 通过上面可以直观感受到通过防抖处理后，基本上已经不影响 input 输入了。但是面临一个问题就是 list 视图改变的延时时间变长了。那么 transition 和**节流防抖** 本质上的区别是：
 
@@ -239,22 +239,22 @@ transition 在处理慢的计算机上效果更加明显，我们来看一下 [R
 * 处理性能高，更快速的设备上。不使用 startTransition 。
 
 
-![](images\64f94b4819ab55d2bedd7c67390594a5.gif)
+![](../imgs/64f94b4819ab55d2bedd7c67390594a5.gif)
 
 * 处理性能高，更快速的设备上。使用 startTransition。
 
 
-![](images\908d7ee51ff83ac67bfb700a595900bb.gif)
+![](../imgs/908d7ee51ff83ac67bfb700a595900bb.gif)
 
 * 处理性能差，慢速的设备上，不使用 startTransition。
 
 
-![](images\d1e9d31437c464865ec820b073cb11c4.gif)
+![](../imgs/d1e9d31437c464865ec820b073cb11c4.gif)
 
 * 处理性能差，慢速的设备上，使用 startTransition。
 
 
-![](images\acc22fae85c28b2a1a42b10f89bbfd6d.gif)
+![](../imgs/acc22fae85c28b2a1a42b10f89bbfd6d.gif)
 
 ## 三 transition 特性
 
@@ -336,7 +336,7 @@ export default function App(){
 接下来看一下效果：
 
 
-![](images\c90c0fceaa39695f02c122cb64cbada0.gif)
+![](../imgs/c90c0fceaa39695f02c122cb64cbada0.gif)
 
 
 可以看到能够准确捕获到过渡期间的状态。
@@ -379,7 +379,7 @@ export default function App(){
 
 效果：
 
-![](images\a927c5acd654d0e3ca47120f215052ae.gif)
+![](../imgs/a927c5acd654d0e3ca47120f215052ae.gif)
 
 
 ## 四 原理
@@ -412,7 +412,7 @@ export function startTransition(scope) {
 其原理图如下所示。
 
 
-![](images\03cbbf0cfc1a8a022cfb7e863d0e02e1.png)
+![](../imgs/03cbbf0cfc1a8a022cfb7e863d0e02e1.png)
 
 ### 2 useTranstion
 
@@ -444,7 +444,7 @@ function mountTransition(){
 其原理图如下所示。
 
 
-![](images\3b8e4487a856f8620739b09be7ac6df7.png)
+![](../imgs/3b8e4487a856f8620739b09be7ac6df7.png)
 
 ### 3 useDeferredValue
 
@@ -475,7 +475,7 @@ useDeferredValue 处理流程是这样的。
 其原理图如下所示。
 
 
-![](images\c7e31d24bcf4336ffd84d5edbca891d2.png)
+![](../imgs/c7e31d24bcf4336ffd84d5edbca891d2.png)
 
 ## 四 总结
 
