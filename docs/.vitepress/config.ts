@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: guyawei (1972065889@qq.com)
  * @Date: 2026-05-30 20:47:57
- * @LastEditTime: 2026-06-02 19:06:28
+ * @LastEditTime: 2026-06-03 22:06:39
  * @LastEditors: guyawei (1972065889@qq.com)
  * @FilePath: \blog\docs\.vitepress\config.ts
  */
@@ -41,8 +41,10 @@ export default defineConfig({
         { text: '性能优化', link: '/interview/performance' },
       ],
       '/react/': [
-        { text: 'React 源码解析', link: '/react/source' },
-        { text: 'React 性能优化', link: '/react/performance' },
+        { text: 'React 事件原理', link: '/react/reacteventprinciple' },
+        { text: 'Fiber架构以及如何实现增量渲染', link: '/react/fiber' },
+        { text: 'useState和useEffect的实现原理', link: '/react/stateeffect' },
+        { text: 'React18新特性-transition', link: '/react/transition' },
       ],
       '/vue3/': [
         { text: '响应式原理', link: '/vue3/reactive' },
@@ -53,6 +55,9 @@ export default defineConfig({
         { text: 'LLM大模型', link: '/ai/llm' },
         { text: 'RAG-检索增强生成', link: '/ai/search' },
         { text: '向量数据库', link: '/ai/database' },
+        { text: '文本分块', link: '/ai/promptsplit' },
+        { text: '检索语句解析', link: '/ai/queryparse' },
+        { text: '检索结果重排', link: '/ai/resultresort' },
       ],
       '/projects/': [
         { text: 'Electron 跨平台', link: '/projects/electron' },

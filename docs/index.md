@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: guyawei (1972065889@qq.com)
  * @Date: 2026-05-30 20:49:39
- * @LastEditTime: 2026-06-02 18:12:09
+ * @LastEditTime: 2026-06-03 22:06:41
  * @LastEditors: guyawei (1972065889@qq.com)
  * @FilePath: \blog\docs\index.md
 -->
@@ -14,12 +14,19 @@
 ## 博客栏目
 
 <!-- - [前端面试](./interview/) -->
-<!-- - [React](./react/) -->
+- [React](./react/)
+    - [React 事件原理](/react/reacteventprinciple)
+    - [Fiber架构以及如何实现增量渲染](/react/fiber)
+    - [useState和useEffect的实现原理](/react/stateeffect)
+    - [React18新特性-transition](/react/transition)
 <!-- - [Vue](./vue3/) -->
 - [AI Learning](/ai/llm)
     - [LLM大语言模型](/ai/llm)
     - [RAG-检索增强](/ai/search)
     - [VectorDatabase](/ai/database)
+    - [文本分块](/ai/promptsplit)
+    - [检索语句解析](/ai/queryparse)
+    - [检索结果重排](/ai/resultresort)
 <!-- - [项目实战](./projects/) -->
 
 ---
