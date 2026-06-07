@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: guyawei (1972065889@qq.com)
  * @Date: 2026-05-30 20:47:57
- * @LastEditTime: 2026-06-03 22:06:39
+ * @LastEditTime: 2026-06-07 18:15:38
  * @LastEditors: guyawei (1972065889@qq.com)
  * @FilePath: \blog\docs\.vitepress\config.ts
  */
@@ -37,8 +37,10 @@ export default defineConfig({
 
     sidebar: {
       '/interview/': [
-        { text: '数组', link: '/interview/array' },
-        { text: '性能优化', link: '/interview/performance' },
+        { text: '常见笔试题', link: '/interview/writentest' },
+        { text: 'JS基础面试题', link: '/interview/jsbasic' },
+        { text: 'React面试题', link: '/interview/react' },
+        { text: '微前端', link: '/interview/micro' },
       ],
       '/react/': [
         { text: 'React 事件原理', link: '/react/reacteventprinciple' },
@@ -46,9 +48,9 @@ export default defineConfig({
         { text: 'useState和useEffect的实现原理', link: '/react/stateeffect' },
         { text: 'React18新特性-transition', link: '/react/transition' },
       ],
-      '/vue3/': [
-        { text: '响应式原理', link: '/vue3/reactive' },
-        { text: '组合式 API', link: '/vue3/composition' },
+      '/vue/': [
+        { text: '响应式原理', link: '/vue/reactivity' },
+        { text: 'Vue3 Composition API', link: '/vue/composition' },
       ],
       '/ai/': [
         { text: 'Claude注意事项', link: '/ai/claude' },
